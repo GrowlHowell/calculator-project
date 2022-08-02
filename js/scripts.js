@@ -1,81 +1,81 @@
-let answer = 0;
+let workingTotal = 0;
 
 const add = function() {
     for (let i = 0; i < arguments.length; i++) {
         if (isNaN(arguments[i])) {
             return "Please enter a valid number.";
         } else {
-            answer += arguments[i];
+            workingTotal += arguments[i];
         }
     }
-    return answer;
+    return workingTotal;
 };
 
 const quickAdd = function(number) {
-    answer = answer + number;
-    return answer;
+    workingTotal = workingTotal + number;
+    return workingTotal;
 }
 
 const subtract = function() {
     for (let i = 0; i < arguments.length; i++) {
-        if (i == 0 && answer == 0) {
-            answer += arguments[i];
+        if (i == 0 && workingTotal == 0) {
+            workingTotal += arguments[i];
         } else {
             if (isNaN(arguments[i])) {
                 return "Please enter a valid number.";
             } else {
-                answer -= arguments[i];
+                workingTotal -= arguments[i];
             }
         }
     }
-    return answer;
+    return workingTotal;
 };
 
 const quickSubtract = function(number) {
-    answer = answer - number;
-    return answer;
+    workingTotal = workingTotal - number;
+    return workingTotal;
 }
 
 const multiply = function() {
     for (let i = 0; i < arguments.length; i++) {
-        if (answer == 0) {
-            answer += 1;
+        if (workingTotal == 0) {
+            workingTotal += 1;
         }
         if (isNaN(arguments[i])) {
             return "Please enter a valid number.";
         } else {
-            answer *= arguments[i];
+            workingTotal *= arguments[i];
         }
     }
-    return answer;
+    return workingTotal;
 };
 
 const quickMultiply = function(number) {
-    answer = answer * number;
-    return answer;
+    workingTotal = workingTotal * number;
+    return workingTotal;
 }
 
 const divide = function() {
     for (let i = 0; i < arguments.length; i++) {
-        if (answer == 0) {
+        if (workingTotal == 0) {
             return 0;
         }
         if (isNaN(arguments[i])) {
             return "Please enter a valid number.";
         } else {
-            answer /= arguments[i];
+            workingTotal /= arguments[i];
         }
     }
-    return answer;
+    return workingTotal;
 };
 
 const quickDivide = function(number) {
-    answer = answer / number;
-    return answer;
+    workingTotal = workingTotal / number;
+    return workingTotal;
 }
 
 const operate = function(operator, num1, num2) {
-    answer = 0;
+    workingTotal = 0;
     switch(operator) {
         case "add":
             add(num1, num2);
@@ -92,5 +92,5 @@ const operate = function(operator, num1, num2) {
         default:
             return "Something went wrong";
     }
-    return answer;
+    return workingTotal;
 }
