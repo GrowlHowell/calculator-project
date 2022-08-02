@@ -1,11 +1,27 @@
+let answer = 0;
+
 const add = function() {
-    let sum = 0;
     for (let i = 0; i < arguments.length; i++) {
         if (isNaN(arguments[i])) {
             return "Please enter a valid number.";
         } else {
-            sum += arguments[i];
+            answer += arguments[i];
         }
     }
-    return sum;
+    return answer;
+};
+
+const subtract = function() {
+    for (let i = 0; i < arguments.length; i++) {
+        if (i == 0 && answer == 0) {
+            answer += arguments[i];
+        } else {
+            if (isNaN(arguments[i])) {
+                return "Please enter a valid number.";
+            } else {
+                answer -= arguments[i];
+            }
+        }
+    }
+    return answer;
 };
