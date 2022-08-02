@@ -39,3 +39,17 @@ const multiply = function() {
     }
     return answer;
 };
+
+const divide = function() {
+    for (let i = 0; i < arguments.length; i++) {
+        if (answer == 0) {
+            return 0;
+        }
+        if (isNaN(arguments[i])) {
+            return "Please enter a valid number.";
+        } else {
+            answer /= arguments[i];
+        }
+    }
+    return answer;
+};
