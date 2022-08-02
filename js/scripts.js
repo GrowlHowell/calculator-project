@@ -73,3 +73,24 @@ const quickDivide = function(number) {
     answer = answer / number;
     return answer;
 }
+
+const operate = function(operator, num1, num2) {
+    answer = 0;
+    switch(operator) {
+        case "add":
+            add(num1, num2);
+            break;
+        case "subtract":
+            subtract(num1, num2);
+            break;
+        case "multiply":
+            multiply(num1, num2);
+            break;
+        case "divide":
+            divide(num1, num2);
+            break;
+        default:
+            return "Something went wrong";
+    }
+    return answer;
+}
