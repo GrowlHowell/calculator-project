@@ -11,6 +11,11 @@ const add = function() {
     return answer;
 };
 
+const quickAdd = function(number) {
+    answer = answer + number;
+    return answer;
+}
+
 const subtract = function() {
     for (let i = 0; i < arguments.length; i++) {
         if (i == 0 && answer == 0) {
@@ -26,6 +31,11 @@ const subtract = function() {
     return answer;
 };
 
+const quickSubtract = function(number) {
+    answer = answer - number;
+    return answer;
+}
+
 const multiply = function() {
     for (let i = 0; i < arguments.length; i++) {
         if (answer == 0) {
@@ -40,6 +50,11 @@ const multiply = function() {
     return answer;
 };
 
+const quickMultiply = function(number) {
+    answer = answer * number;
+    return answer;
+}
+
 const divide = function() {
     for (let i = 0; i < arguments.length; i++) {
         if (answer == 0) {
@@ -53,3 +68,8 @@ const divide = function() {
     }
     return answer;
 };
+
+const quickDivide = function(number) {
+    answer = answer / number;
+    return answer;
+}
