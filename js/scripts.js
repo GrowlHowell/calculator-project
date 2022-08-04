@@ -1,5 +1,12 @@
 let workingTotal = 0;
 
+const display = document.querySelector('.display p');
+let displayText = display.textContent;
+const updateDisplay = function(number) {
+    displayText = `${displayText}${number}`;
+    return displayText;
+}
+
 const add = function() {
     for (let i = 0; i < arguments.length; i++) {
         if (isNaN(arguments[i])) {
@@ -94,3 +101,45 @@ const operate = function(operator, num1, num2) {
     }
     return workingTotal;
 }
+
+const button1 = document.getElementById('1');
+const button2 = document.getElementById('2');
+const button3 = document.getElementById('3');
+const button4 = document.getElementById('4');
+const button5 = document.getElementById('5');
+const button6 = document.getElementById('6');
+const button7 = document.getElementById('7');
+const button8 = document.getElementById('8');
+const button9 = document.getElementById('9');
+const button0 = document.getElementById('0');
+
+button1.addEventListener('click', function() {
+    updateDisplay(1);
+})
+button2.addEventListener('click', function() {
+    updateDisplay(2);
+})
+button3.addEventListener('click', function() {
+    updateDisplay(3);
+})
+button4.addEventListener('click', function() {
+    updateDisplay(4);
+})
+button5.addEventListener('click', function() {
+    updateDisplay(5);
+})
+button6.addEventListener('click', function() {
+    updateDisplay(6);
+})
+button7.addEventListener('click', function() {
+    updateDisplay(7);
+})
+button8.addEventListener('click', function() {
+    updateDisplay(8);
+})
+button9.addEventListener('click', function() {
+    updateDisplay(9);
+})
+button0.addEventListener('click', function() {
+    updateDisplay(0);
+})
