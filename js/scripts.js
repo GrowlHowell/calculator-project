@@ -1,18 +1,22 @@
 let workingTotal = 0;
+let num1;
+let num2;
+let operator;
 
 const display = document.querySelector('.display p');
-let displayText = display.textContent;
+let displayText;
 const updateDisplay = function(number) {
-    displayText = `${displayText}${number}`;
-    return displayText;
-}
+    displayText = display.textContent;
+    display.textContent = `${displayText}${number}`;
+    return displayText = display.textContent;
+};
 
 const add = function() {
     for (let i = 0; i < arguments.length; i++) {
         if (isNaN(arguments[i])) {
             return "Please enter a valid number.";
         } else {
-            workingTotal += arguments[i];
+            workingTotal += Number.parseInt(arguments[i]);
         }
     }
     return workingTotal;
@@ -21,7 +25,7 @@ const add = function() {
 const quickAdd = function(number) {
     workingTotal = workingTotal + number;
     return workingTotal;
-}
+};
 
 const subtract = function() {
     for (let i = 0; i < arguments.length; i++) {
@@ -31,7 +35,7 @@ const subtract = function() {
             if (isNaN(arguments[i])) {
                 return "Please enter a valid number.";
             } else {
-                workingTotal -= arguments[i];
+                workingTotal -= Number.parseInt(arguments[i]);
             }
         }
     }
@@ -41,7 +45,7 @@ const subtract = function() {
 const quickSubtract = function(number) {
     workingTotal = workingTotal - number;
     return workingTotal;
-}
+};
 
 const multiply = function() {
     for (let i = 0; i < arguments.length; i++) {
@@ -51,7 +55,7 @@ const multiply = function() {
         if (isNaN(arguments[i])) {
             return "Please enter a valid number.";
         } else {
-            workingTotal *= arguments[i];
+            workingTotal *= Number.parseInt(arguments[i]);
         }
     }
     return workingTotal;
@@ -60,7 +64,7 @@ const multiply = function() {
 const quickMultiply = function(number) {
     workingTotal = workingTotal * number;
     return workingTotal;
-}
+};
 
 const divide = function() {
     for (let i = 0; i < arguments.length; i++) {
@@ -70,7 +74,7 @@ const divide = function() {
         if (isNaN(arguments[i])) {
             return "Please enter a valid number.";
         } else {
-            workingTotal /= arguments[i];
+            workingTotal /= Number.parseInt(arguments[i]);
         }
     }
     return workingTotal;
@@ -79,10 +83,9 @@ const divide = function() {
 const quickDivide = function(number) {
     workingTotal = workingTotal / number;
     return workingTotal;
-}
+};
 
 const operate = function(operator, num1, num2) {
-    workingTotal = 0;
     switch(operator) {
         case "add":
             add(num1, num2);
@@ -99,8 +102,9 @@ const operate = function(operator, num1, num2) {
         default:
             return "Something went wrong";
     }
+    displayText = workingTotal;
     return workingTotal;
-}
+};
 
 const button1 = document.getElementById('1');
 const button2 = document.getElementById('2');
@@ -112,34 +116,84 @@ const button7 = document.getElementById('7');
 const button8 = document.getElementById('8');
 const button9 = document.getElementById('9');
 const button0 = document.getElementById('0');
+const buttonAdd = document.getElementById('add');
+const buttonSubtract = document.getElementById('subtract');
+const buttonMultiply = document.getElementById('multiply');
+const buttonDivide = document.getElementById('divide');
+const buttonEquals = document.getElementById('equals');
+const buttonClear = document.getElementById('clear');
 
 button1.addEventListener('click', function() {
     updateDisplay(1);
-})
+});
 button2.addEventListener('click', function() {
     updateDisplay(2);
-})
+});
 button3.addEventListener('click', function() {
     updateDisplay(3);
-})
+});
 button4.addEventListener('click', function() {
     updateDisplay(4);
-})
+});
 button5.addEventListener('click', function() {
     updateDisplay(5);
-})
+});
 button6.addEventListener('click', function() {
     updateDisplay(6);
-})
+});
 button7.addEventListener('click', function() {
     updateDisplay(7);
-})
+});
 button8.addEventListener('click', function() {
     updateDisplay(8);
-})
+});
 button9.addEventListener('click', function() {
     updateDisplay(9);
-})
+});
 button0.addEventListener('click', function() {
     updateDisplay(0);
-})
+});
+
+buttonAdd.addEventListener('click', function(){
+    if (displayText == '') {
+        return display.textContent = "Please enter a valid number first.";
+    }
+    num1 = displayText;
+    operator = 'add';
+    display.textContent = '';
+});
+buttonSubtract.addEventListener('click', function(){
+    if (displayText == '') {
+        return display.textContent = "Please enter a valid number first.";
+    }
+    num1 = displayText;
+    operator = 'subtract';
+    display.textContent = '';
+});
+buttonMultiply.addEventListener('click', function(){
+    if (displayText == '') {
+        return display.textContent = "Please enter a valid number first.";
+    }
+    num1 = displayText;
+    operator = 'multiply';
+    display.textContent = '';
+});
+buttonDivide.addEventListener('click', function(){
+    if (displayText == '') {
+        return display.textContent = "Please enter a valid number first.";
+    }
+    num1 = displayText;
+    operator = 'divide';
+    display.textContent = '';
+});
+
+buttonEquals.addEventListener('click', function() {
+    num2 = displayText;
+    operate(operator, num1, num2);
+    display.textContent = workingTotal;
+});
+
+buttonClear.addEventListener('click', function() {
+    displayText = '';
+    display.textContent = '';
+});
