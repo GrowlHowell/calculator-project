@@ -1,0 +1,39 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 960px;
+}
+
+.numbers-div,
+.operators-div {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.numbers-div {
+    margin-bottom: 20px;
+}
+
+.number-button {
+    flex: 1 1 25%;
+}
+
+.operator-button {
+    flex: 1 1 20%;
+}
+
+button {
+    width: 100%;
+    font-size: 2em;
+    padding: 25px;
+}
