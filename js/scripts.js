@@ -188,9 +188,17 @@ buttonDivide.addEventListener('click', function(){
 });
 
 buttonEquals.addEventListener('click', function() {
-    num2 = displayText;
-    operate(operator, num1, num2);
-    display.textContent = workingTotal;
+    if (workingTotal == 0) {
+        num2 = displayText;
+        operate(operator, num1, num2);
+        display.textContent = workingTotal;
+    } else {
+        num1 = workingTotal;
+        num2 = displayText;
+        operate(operator, num1, num2);
+        display.textContent = workingTotal;
+    }
+    
 });
 
 buttonClear.addEventListener('click', function() {
