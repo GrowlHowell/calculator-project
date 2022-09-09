@@ -191,7 +191,7 @@ buttonDivide.addEventListener('click', function(){
 });
 
 buttonEquals.addEventListener('click', function() {
-    if (displayText == undefined) {
+    if (displayText == undefined || displayText == '') {
         display.textContent = "Please enter a number first.";
         return;
     }
