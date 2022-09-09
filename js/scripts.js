@@ -86,6 +86,8 @@ const quickDivide = function(number) {
 };
 
 const operate = function(operator, num1, num2) {
+    console.log(num1);
+    console.log(num2);
     switch(operator) {
         case "add":
             add(num1, num2);
@@ -195,11 +197,17 @@ buttonEquals.addEventListener('click', function() {
     }
     if (workingTotal == 0) {
         num2 = displayText;
+        if (num1 == undefined) {
+            display.textContent = num2;
+            return;
+        }
         operate(operator, num1, num2);
         display.textContent = workingTotal;
     } else {
         num1 = workingTotal;
+        workingTotal = 0;
         num2 = displayText;
+        displayText = 0;
         operate(operator, num1, num2);
         display.textContent = workingTotal;
     }
