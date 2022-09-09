@@ -67,10 +67,10 @@ const quickMultiply = function(number) {
 };
 
 const divide = function() {
+    if (workingTotal == 0 && num1 == 0 && num2 == 0) {
+        return 0;
+    }
     for (let i = 0; i < arguments.length; i++) {
-        if (workingTotal == 0 && num1 == 0 && num2 == 0) {
-            return 0;
-        }
         if (isNaN(arguments[i])) {
             return "Please enter a valid number.";
         } else {
@@ -199,6 +199,10 @@ buttonEquals.addEventListener('click', function() {
     }
     if (workingTotal == 0) {
         num2 = displayText;
+        if (operator == 'divide' && num2 == 0) {
+            display.textContent = "You can't divide by 0!";
+            return;
+        }
         if (num1 == undefined) {
             display.textContent = num2;
             return;
