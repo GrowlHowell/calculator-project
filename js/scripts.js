@@ -159,6 +159,7 @@ buttonAdd.addEventListener('click', function(){
         return display.textContent = "Please enter a valid number first.";
     }
     num1 = displayText;
+    displayText = 0;
     operator = 'add';
     display.textContent = '';
 });
@@ -188,6 +189,10 @@ buttonDivide.addEventListener('click', function(){
 });
 
 buttonEquals.addEventListener('click', function() {
+    if (displayText == undefined) {
+        display.textContent = "Please enter a number first.";
+        return;
+    }
     if (workingTotal == 0) {
         num2 = displayText;
         operate(operator, num1, num2);
@@ -204,4 +209,7 @@ buttonEquals.addEventListener('click', function() {
 buttonClear.addEventListener('click', function() {
     displayText = '';
     display.textContent = '';
+    num1 = 0;
+    num2 = 0;
+    workingTotal = 0;
 });
