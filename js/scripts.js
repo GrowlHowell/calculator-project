@@ -68,12 +68,14 @@ const quickMultiply = function(number) {
 
 const divide = function() {
     for (let i = 0; i < arguments.length; i++) {
-        if (workingTotal == 0) {
+        if (workingTotal == 0 && num1 == 0 && num2 == 0) {
             return 0;
         }
         if (isNaN(arguments[i])) {
             return "Please enter a valid number.";
         } else {
+            console.log(workingTotal);
+            workingTotal = num1;
             workingTotal /= Number.parseInt(arguments[i]);
         }
     }
